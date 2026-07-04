@@ -1,4 +1,7 @@
-function ProductSpecifications({ product }) {
+import { useOutletContext } from 'react-router-dom';
+
+function ProductSpecifications() {
+  const { product } = useOutletContext();
   return (
     <div className="text-sm text-gray-600">
       <table className="w-full">

@@ -1,4 +1,7 @@
-function ProductOverview({ product }) {
+import { useOutletContext } from 'react-router-dom';
+
+function ProductOverview() {
+  const { product } = useOutletContext();
   return (
     <div className="text-gray-600 text-sm leading-relaxed space-y-4">
       <p>{product.description}</p>

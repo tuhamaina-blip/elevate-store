@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
 import { useCart } from '@/context/CartContext';
 
 function ProductDetails() {
   const { id } = useParams();
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('overview');
 
   useEffect(() => {
     fetch('/products.json')
@@ -18,6 +20,11 @@ function ProductDetails() {
       })
       .catch(() => setLoading(false));
   }, [id]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    navigate(`/products/${id}/${tab}`);
+  };
 
   if (loading) return <p className="text-center py-20">Loading...</p>;
   if (!product) return <p className="text-center py-20 text-red-500">Product not found.</p>;
@@ -51,46 +58,25 @@ function ProductDetails() {
         </div>
       </div>
 
-      {/* Tab */}
+      {/* Tabs */}
       <div className="border-b mb-6 flex gap-6">
-        <button className="pb-3 text-sm capitalize border-b-2 border-black font-semibold">
-          Overview
-        </button>
+        {['overview', 'reviews', 'specifications'].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => handleTabClick(tab)}
+            className={`pb-3 text-sm capitalize transition-colors ${
+              activeTab === tab
+                ? 'border-b-2 border-black font-semibold'
+                : 'text-gray-400 hover:text-black'
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
 
-      {/* Overview Content */}
-      <div className="text-gray-600 text-sm leading-relaxed space-y-6">
-        <p>{product.description}</p>
-        <p>
-          Every Elevate product is carefully selected for its quality, durability, and design.
-          We source only from the finest craftsmen and manufacturers around the world.
-        </p>
-
-        {/* Specifications */}
-        <div>
-          <h3 className="text-black font-semibold text-base mb-3">Specifications</h3>
-          <table className="w-full">
-            <tbody className="divide-y">
-              <tr>
-                <td className="py-2 font-medium w-40">Category</td>
-                <td className="py-2 text-gray-500">{product.category}</td>
-              </tr>
-              <tr>
-                <td className="py-2 font-medium">Price</td>
-                <td className="py-2 text-gray-500">${product.price.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <td className="py-2 font-medium">Rating</td>
-                <td className="py-2 text-gray-500">{product.rating} / 5</td>
-              </tr>
-              <tr>
-                <td className="py-2 font-medium">Availability</td>
-                <td className="py-2 text-gray-500">In Stock</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      {/* Nested Route Content */}
+      <Outlet context={{ product }} />
     </div>
   );
 }

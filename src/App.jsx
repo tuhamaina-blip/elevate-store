@@ -11,6 +11,10 @@ import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import OrderConfirmation from './pages/OrderConfirmation';
+import { Navigate } from 'react-router-dom';
+import ProductOverview from './pages/ProductOverview';
+import ProductReviews from './pages/ProductReviews';
+import ProductSpecifications from './pages/ProductSpecifications';
 
 // Components
 import Navbar from './components/Navbar';
@@ -28,7 +32,12 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductDetails />} />
+                <Route path="/products/:id" element={<ProductDetails />}>
+                  <Route index element={<Navigate to="overview" replace />} />
+                  <Route path="overview" element={<ProductOverview />} />
+                  <Route path="reviews" element={<ProductReviews />} />
+                  <Route path="specifications" element={<ProductSpecifications />} />
+                </Route>
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
