@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Italian Leather Briefcase",
+    "price": 450.00,
+    "category": "Accessories",
+    "description": "Full-grain Italian leather briefcase with brass fittings and suede interior.",
+    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500",
+    "rating": 4.9
+  },
+  {
+    "id": 2,
+    "name": "Swiss Automatic Watch",
+    "price": 1299.00,
+    "category": "Watches",
+    "description": "Hand-assembled Swiss movement with sapphire crystal glass and calfskin strap.",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+    "rating": 4.9
+  },
+  {
+    "id": 3,
+    "name": "Cashmere Overcoat",
+    "price": 890.00,
+    "category": "Clothing",
+    "description": "100% Mongolian cashmere overcoat with silk lining and hand-finished edges.",
+    "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=500",
+    "rating": 4.8
+  },
+  {
+    "id": 4,
+    "name": "Noise-Canceling Headphones",
+    "price": 379.00,
+    "category": "Electronics",
+    "description": "Studio-grade sound with 40-hour battery life and premium leather ear cushions.",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Marble Desk Organizer",
+    "price": 195.00,
+    "category": "Office",
+    "description": "Solid white Carrara marble desk organizer with gold-plated pen holder.",
+    "image": "https://images.unsplash.com/photo-1618424181497-158f9695627c?w=500",
+    "rating": 4.6
+  },
+  {
+    "id": 6,
+    "name": "Handcrafted Fountain Pen",
+    "price": 320.00,
+    "category": "Office",
+    "description": "18k gold nib fountain pen with ebonite barrel and custom ink converter.",
+    "image": "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=500",
+    "rating": 4.8
+  },
+  {
+    "id": 7,
+    "name": "Silk Pocket Square Set",
+    "price": 120.00,
+    "category": "Accessories",
+    "description": "Set of 5 hand-rolled silk pocket squares in classic patterns.",
+    "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500",
+    "rating": 4.5
+  },
+  {
+    "id": 8,
+    "name": "Leather Loafers",
+    "price": 540.00,
+    "category": "Footwear",
+    "description": "Hand-welted calfskin loafers with leather sole and cedar shoe trees included.",
+    "image": "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=500",
+    "rating": 4.7
+  }
+]
